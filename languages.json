@@ -1,0 +1,15 @@
+{
+    
+    "pt-br":
+             { 
+                "main_menu" :   {
+                                    "title" : ["ESCOLHA OS PACOTES QUE DESEJA INSTALAR"],
+                                    "options" : { "menu_options" : 
+                                                    [
+                                                            "PYTHON", "TERMINAL"
+                                                    ]
+                                                }
+                                }
+            }
+
+}
