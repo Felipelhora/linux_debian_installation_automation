@@ -6,7 +6,7 @@
                                     "title" : ["ESCOLHA OS PACOTES QUE DESEJA INSTALAR"],
                                     "options" : { "menu_options" : 
                                                     [
-                                                            "PYTHON", "TERMINAL"
+                                                            " PYTHON", " TERMINAL", " START"
                                                     ]
                                                 }
                                 }

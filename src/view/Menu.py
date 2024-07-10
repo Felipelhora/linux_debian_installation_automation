@@ -6,16 +6,8 @@ import curses
 class Menu(Commands):
 
     def __init__(self):
-        self.options = {
-            "menu_options": [
-                "Option 1",
-                "Option 2",
-                "Option 3",
-                "Option 4",
-                "Exit"
-            ]
-        }
-        ...
+        self.options = {}
+        self.ola = '-----------------'        
 
     def print_menu(self, stdscr, selected_row_idx, selected_options, menu_options):
         stdscr.clear()
@@ -43,7 +35,6 @@ class Menu(Commands):
         curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
         current_row = 0
         selected_options = [False] * len(self.options["menu_options"])
-
         while True:
             self.print_menu(stdscr, current_row, selected_options, self.options["menu_options"])
             key = stdscr.getch()
@@ -70,10 +61,12 @@ class Menu(Commands):
     
     def menu_main(self):
         while True:
+            print (self.options)
             for title in config["menu_options"]["main_menu"]["title"]:
                 print (title)
             print('\n')
-            self.options = config["menu_options"]["main_menu"]["title"]
+            self.options = config["menu_options"]["main_menu"]["options"]
+            print (self.options)
             curses.wrapper(self.main)
             choise = int(input(''))
             os.system("clear")

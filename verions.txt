@@ -1,1 +1,2 @@
 0.0.1 - Primeira estrutura
+0.0.2 - Correção do menu
