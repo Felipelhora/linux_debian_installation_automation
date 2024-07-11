@@ -27,5 +27,5 @@ def env_load():
 
 
 config = {
-            "menu_options" : load_pack_language()[env_load()["language"]]
+            "menu_options" : load_pack_language()[env_load()["language"]],
 }

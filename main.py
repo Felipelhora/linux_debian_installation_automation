@@ -1,3 +1,12 @@
+from src.middleware.execution import start
+
+
+start(['system'])
+
+
+
+
+
 '''import subprocess
 import os
 import time
@@ -20,7 +29,21 @@ with open(f"{local_path}/commands.json", 'r+') as json_commands:
 
 # time.sleep(3)'''
 
-from src.view.Menu import Menu
+# from src.view.Menu import Menu
 
 
-Menu().menu_main()
+# Menu().menu_main()
+
+
+# from services.CommandsText import CommandsText
+
+
+
+# ola = CommandsText()
+
+
+# commands = ola.load_commands()
+
+# for command_group in commands:
+#     for command in commands[command_group]:
+#         print (command)

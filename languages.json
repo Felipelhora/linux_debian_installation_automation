@@ -9,7 +9,13 @@
                                                             " PYTHON", " TERMINAL", " START"
                                                     ]
                                                 }
+                                },
+                "messages_execution" :
+                                {
+                                    "success"   : "Excução feita com sucesso",
+                                    "running": "Executando ação"
                                 }
             }
+
 
 }
