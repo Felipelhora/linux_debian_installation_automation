@@ -1,9 +1,19 @@
 import os
 import json
+import subprocess
 
 
-local_path = os.getcwd()
 
+
+
+
+
+
+def get_route_path():
+    process = subprocess.Popen('logname', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stdout, stderr = process.communicate()
+    return f"/home/{stdout.strip()}/"
+    
 
 
 
@@ -25,6 +35,10 @@ def env_load():
     return envs
 
 
+
+path_home = get_route_path()
+local_path = os.getcwd()
+path_download = f'{local_path}/downloads/'
 
 config = {
             "menu_options" : load_pack_language()[env_load()["language"]],
