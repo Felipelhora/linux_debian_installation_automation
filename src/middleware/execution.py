@@ -6,18 +6,18 @@ from src.view.Menu import Menu
 
 
 
-def execute_sudo_commands(sudo_commands:list, password:str, actions):
+def execute_sudo_commands(sudo_commands:list, password:str, actions:object):
     if len(sudo_commands) == 0:
         return True
     for promt in sudo_commands:
         actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {promt}", invisible=False)
 
 
-def execute_user_commands(user_commands:list):
+def execute_user_commands(user_commands:list, actions:object):
     if len(user_commands) == 0:
         return True
-    for command in user_commands:
-        print (command)
+    for prompt in user_commands:
+        actions.prompt_commands(prompt=prompt, invisible=False)
     
 
 def start(filter_actions:list) -> None:
