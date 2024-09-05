@@ -10,7 +10,7 @@ def execute_sudo_commands(sudo_commands:list, password:str, actions):
     if len(sudo_commands) == 0:
         return True
     for promt in sudo_commands:
-        actions.prompt_commands(promt=f"echo '{password}' | sudo -S {promt}", invisible=False)
+        actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {promt}", invisible=False)
 
 
 def execute_user_commands(user_commands:list):
