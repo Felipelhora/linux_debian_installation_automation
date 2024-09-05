@@ -6,20 +6,23 @@
                                             "sudo"      :       {
                                                                     "add-apt-repository": ["universe"],                    
                                                                     "apt": ["update, upgrade"],
-                                                                    "apt_install":["htop", "openssh-server", "docker.io", "docker-compose-v2", "net-tools", "curl", "terminator", "git", "build-essential", "python3-pip", "wget", "libssl-dev", "snapd", "libfuse2", "libfuse2t64"]
+                                                                    "apt_install":["htop", "kolourpaint","bmon", "openssh-server", "docker.io", "docker-compose-v2", "net-tools", "curl", "terminator", "git", "build-essential", "python3-pip", "wget", "libssl-dev", "snapd", "libfuse2", "libfuse2t64"]
                                                                 },
                                             "simple"    : {}
                                         },
                             "python" : { 
                                             "download": [],
                                             "sudo": {},
-                                            "simple": ["curl https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
-                                    },    
+                                            "simple": 
+                                                        {
+                                                            "curl":["https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
+                                                        }
+                                        },    
                             "php": 
                                         {
                                             "download": [],
                                             "sudo":     {
-                                                            "apt":["update && apt upgrade -y"],
+                                                            "apt":["update", "upgrade"],
                                                             "add-apt-repository": ["add-apt-repository ppa:ondrej/php"],
                                                             "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml"]
                                                        },
