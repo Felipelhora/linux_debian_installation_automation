@@ -1,18 +1,16 @@
-from src.services.Commands import Commands
+# from src.services.Commands import Commands
 from src.config import config
 import os
 import curses
+import getpass
 
-class Menu(Commands):
-
+class Menu():
     def __init__(self):
         self.options = {}
-        self.ola = '-----------------'        
 
     def print_menu(self, stdscr, selected_row_idx, selected_options, menu_options):
         stdscr.clear()
         h, w = stdscr.getmaxyx()
-
         for idx, row in enumerate(menu_options):
             x = w//2 - len(row)//2
             y = h//2 - len(menu_options)//2 + idx
@@ -60,14 +58,17 @@ class Menu(Commands):
         ...
     
     def menu_main(self):
-        while True:
-            print (self.options)
-            for title in config["menu_options"]["main_menu"]["title"]:
-                print (title)
-            print('\n')
-            self.options = config["menu_options"]["main_menu"]["options"]
-            print (self.options)
-            curses.wrapper(self.main)
-            choise = int(input(''))
-            os.system("clear")
+        password = password = getpass.getpass(prompt=config["menu_options"]["main_menu"]["enter_pass"])
+        return password
+    
+        # while True:
+        #     print (self.options)
+        #     for title in config["menu_options"]["main_menu"]["title"]:
+        #         print (title)
+        #     print('\n')
+        #     self.options = config["menu_options"]["main_menu"]["options"]
+        #     print (self.options)
+        #     curses.wrapper(self.main)
+        #     choise = int(input(''))
+        #     os.system("clear")
             

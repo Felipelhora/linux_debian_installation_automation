@@ -4,6 +4,7 @@
              { 
                 "main_menu" :   {
                                     "title" : ["ESCOLHA OS PACOTES QUE DESEJA INSTALAR"],
+                                    "enter_pass": "DIGITE SUA SENHA SUDO : ",
                                     "options" : { "menu_options" : 
                                                     [
                                                             " PYTHON", " TERMINAL", " START"
@@ -13,7 +14,7 @@
                 "messages_execution" :
                                 {
                                     "success"   : "Excução feita com sucesso",
-                                    "running": "Executando ação"
+                                    "running"   : "Executando ação"
                                 }
             }
 

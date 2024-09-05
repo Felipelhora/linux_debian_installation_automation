@@ -14,10 +14,6 @@ def get_route_path():
     stdout, stderr = process.communicate()
     return f"/home/{stdout.strip()}/"
     
-
-
-
-
 def load_pack_language():
     with open (f"{local_path}/languages.json") as languages:
          return json.loads(languages.read())

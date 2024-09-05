@@ -6,7 +6,8 @@ class ExecuteActions:
     
     def __init__(self):
         ...
-        
+
+
     def prompt_commands(self, prompt:str, invisible:bool) -> str:
         try:
             process = subprocess.Popen(prompt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
