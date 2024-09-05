@@ -1,6 +1,6 @@
 {
     "system": ["apt update && apt upgrade -y", "apt install htop openssh-server docker.io docker-compose net-tools curl terminator git build-essential python3-pip wget -y libssl-dev"],
-    "python" : ["curl https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)-|' >> {path_home}.bashrc"],    
+    "python" : ["curl https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"],    
     "php": ["apt install software-properties-common -y", "add-apt-repository ppa:ondrej/php -y", "apt install php8.3 -y", "apt install php8.3-mysql php8.3-xml"],
     "javaScript" : ["curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"],
     "snap": ["snap install spotify"],
