@@ -1,4 +1,4 @@
 from src.middleware.execution import start
 
-start(['system'])
+start(['system', 'python', 'javaScript', 'php','snap', 'packages'])
 
