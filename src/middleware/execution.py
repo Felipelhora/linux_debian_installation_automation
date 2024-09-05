@@ -9,8 +9,9 @@ from src.view.Menu import Menu
 def execute_sudo_commands(sudo_commands:list, password:str, actions):
     if len(sudo_commands) == 0:
         return True
-    for command in sudo_commands:
-        output = actions.prompt_commands(prompt=command, invisible=False)
+    for promt in sudo_commands:
+        actions.prompt_commands(f"echo '{password}' | sudo -S {promt}")
+
 
 def execute_user_commands(user_commands:list):
     if len(user_commands) == 0:
