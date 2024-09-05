@@ -12,6 +12,8 @@ def organize_command(command:str, type_command:str) ->str:
     command = command.replace("-|", "'")
     command = command.format(path_home=path_home, path_download=path_download)
     command = f"{type_command} {command}"
+    if type_command != 'snap':
+        command = f"{type_command} {command} -y"
     return command    
     
 
@@ -22,7 +24,7 @@ def execute_sudo_commands(sudo_commands:dict, password:str, actions:object):
     for type_commands in sudo_commands:
         for command in sudo_commands[type_commands]:
             prompt = organize_command(command=command, type_command=type_commands)            
-            actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {prompt} -y", invisible=False)
+            actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {prompt}", invisible=False)
 
 
 def execute_simple_commands(simple_commands:list, actions:object):
@@ -32,9 +34,6 @@ def execute_simple_commands(simple_commands:list, actions:object):
         for command in simple_commands[type_commands]:
             prompt = organize_command(command=command, type_command=type_commands)            
             actions.prompt_commands(prompt=prompt, invisible=False)
-    # for command in simple_commands:
-    #     prompt = organize_command(command)
-    #     actions.prompt_commands(prompt=prompt, invisible=False)
 
 def execute_download_commads(download_instrutions:list, actions:object):
     if len(download_instrutions) == 0:

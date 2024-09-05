@@ -15,7 +15,8 @@
                                             "sudo": {},
                                             "simple": 
                                                         {
-                                                            "curl":["https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
+                                                            "curl":["https://pyenv.run | bash"],
+                                                            "echo": ["-|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "-|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "-|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
                                                         }
                                         },    
                             "php": 
@@ -24,7 +25,7 @@
                                             "sudo":     {
                                                             "apt":["update", "upgrade"],
                                                             "add-apt-repository": ["add-apt-repository ppa:ondrej/php"],
-                                                            "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml"]
+                                                            "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml", "php8.3-xdebug"]
                                                        },
                                             "simple": {}
                                         },
