@@ -28,7 +28,7 @@ def start(filter_actions:list) -> None:
     for command_group in commands:
         # # VERIFICA SE ESTÁ NA LISTA DE INSTALAÇÃO
         if command_group in filter_actions:
-           execute_sudo_commands(sudo_commands=commands[command_group]['sudo'], password=password)
+           execute_sudo_commands(sudo_commands=commands[command_group]['sudo'], password=password, actions=actions)
            execute_user_commands(user_commands=commands[command_group]['user'])
           # EXECUTA COMANDO POR COMANDO
         #   for promt in commands[command_group]['sudo']:
