@@ -25,7 +25,16 @@ def get_release():
         return "ubuntu"
     if "debian" in stdout.lower():
         return "debian"
-     
+    
+def get_version():
+    process = subprocess.Popen('cat /etc/issue', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stdout, stderr = process.communicate()
+    if "22.04" in stdout.lower():
+        return "22.04"
+    if "24.04" in stdout.lower():
+        return "24.04"
+
+
 def env_load():
     envs = {}
     with open (f"{os.getcwd()}/.env") as env:
@@ -44,6 +53,7 @@ path_home = get_route_path()
 local_path = os.getcwd()
 path_download = f'{local_path}/downloads'
 system = get_release()
+version_system = get_version()
 
 config = {
             "menu_options" : load_pack_language()[env_load()["language"]],
