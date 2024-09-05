@@ -13,7 +13,8 @@ class CommandsText:
             with open(f"{local_path}/commands.json", 'r+') as json_commands:
                 json_commands = json.loads(json_commands.read())
                 if system == 'ubuntu':
-                   json_commands["ubuntu_debian"]  
+                   return json_commands["ubuntu_debian"]  
+
                 
 
     ## modificar
