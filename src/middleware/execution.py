@@ -6,17 +6,27 @@ from src.view.Menu import Menu
 
 
 
+def organize_command(command:str) ->str:
+    command = command.replace("'", '"')
+    command = command.replace("-|", "'")
+    command = command.format(path_home=path_home, path_download=path_download)
+    return command    
+    
+
+
 def execute_sudo_commands(sudo_commands:list, password:str, actions:object):
     if len(sudo_commands) == 0:
         return True
-    for promt in sudo_commands:
-        actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {promt}", invisible=False)
+    for command in sudo_commands:
+        prompt = organize_command(command)
+        actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {prompt}", invisible=False)
 
 
 def execute_user_commands(user_commands:list, actions:object):
     if len(user_commands) == 0:
         return True
-    for prompt in user_commands:
+    for command in user_commands:
+        prompt = organize_command(command)
         actions.prompt_commands(prompt=prompt, invisible=False)
     
 

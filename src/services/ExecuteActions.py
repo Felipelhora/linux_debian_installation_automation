@@ -12,9 +12,6 @@ class ExecuteActions:
         try:
             process = subprocess.Popen(prompt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             print (config["menu_options"]["messages_execution"]["running"], '--->', prompt)
-            print ('\n\n')
-            print (prompt)
-            print ('\n\n')
             while True:
                 line = process.stdout.readline()
                 if line:
