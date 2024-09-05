@@ -6,7 +6,7 @@ from src.view.Menu import Menu
 
 
 
-def execute_sudo_commands(sudo_commands:list, password:str, actions:function):
+def execute_sudo_commands(sudo_commands:list, password:str, actions):
     if len(sudo_commands) == 0:
         return True
     for command in sudo_commands:
