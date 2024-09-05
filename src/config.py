@@ -17,6 +17,14 @@ def get_route_path():
 def load_pack_language():
     with open (f"{local_path}/languages.json") as languages:
          return json.loads(languages.read())
+
+def get_release():
+    process = subprocess.Popen('lsb_release -a', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stdout, stderr = process.communicate()
+    if "ubuntu" in stdout.lower():
+        return "ubuntu"
+    if "debian" in stdout.lower():
+        return "debian"
      
 def env_load():
     envs = {}
@@ -34,8 +42,10 @@ def env_load():
 
 path_home = get_route_path()
 local_path = os.getcwd()
-path_download = f'{local_path}/downloads/'
+path_download = f'{local_path}/downloads'
+system = get_release()
 
 config = {
             "menu_options" : load_pack_language()[env_load()["language"]],
+            
 }

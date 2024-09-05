@@ -1,6 +1,7 @@
 
 import subprocess
-from src.config import config
+from src.config import config, path_download
+import urllib.request
 
 class ExecuteActions:
     
@@ -24,10 +25,15 @@ class ExecuteActions:
         except:
             return False
     
-    def wget_commands(self, prompt):
-        output =  self.prompt_commands(prompt=f'wget {prompt}')
-        return output
-        
+    def download_packges(self, url:str, file_name:str):
+        try:
+            with urllib.request.urlopen(url) as response:
+                with open(f"{path_download}/{file_name}", 'wb') as out_file:
+                    data = response.read()
+                    out_file.write(data)
+        except Exception as e:
+            ...
+
     
     def curl_commands(self, prompt):
         ...

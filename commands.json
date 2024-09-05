@@ -1,33 +1,42 @@
 {
-    "system":   { 
-                    "sudo": ["apt update && apt upgrade -y", "apt install htop openssh-server docker.io docker-compose net-tools curl terminator git build-essential python3-pip wget libssl-dev -y"],
-                    "user": []
-                },
-    "python" : { 
-                    "sudo": [],
-                    "user": ["curl https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
-               },    
-    "php": 
-                {
-                    "sudo": ["apt install software-properties-common -y", "add-apt-repository ppa:ondrej/php -y", "apt install php8.3 -y", "apt install php8.3-mysql php8.3-xml"],
-                    "user": []
-                },
-    "javaScript" : 
-                {
-                    "sudo": [],
-                    "user": ["curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"]
-                },
-    
-    "snap":
-                {
-                    "sudo": ["snap install spotify"],
-                    "user": []
-                },
-       
-    "deb": 
-                {
-                    "sudo": [],
-                    "user": ["wget -O {path_download}/dbeaver-ce_latest_amd64.deb https://dbeaver.io/update/latest/files/dbeaver-ce_latest_amd64.deb", "wget -O {path_download}/code.deb https://code.visualstudio.com/docs/?dv=linux64_deb", "wget -O {path_download}/postman.deb https://dl.pstmn.io/download/latest/linux_64"]
-                }
-    
+    "debian/ubuntu" :   
+                        {
+                            "system":   { 
+                                            "download": [],
+                                            "sudo": ["apt update && apt upgrade -y", "apt install htop openssh-server docker.io docker-compose-v2 net-tools curl terminator git build-essential python3-pip wget libssl-dev -y"],
+                                            "simple": []
+                                        },
+                            "python" : { 
+                                            "download": [],
+                                            "sudo": [],
+                                            "simple": ["curl https://pyenv.run | bash", "echo -|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "echo -|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
+                                    },    
+                            "php": 
+                                        {
+                                            "download": [],
+                                            "sudo": ["apt install software-properties-common -y", "add-apt-repository ppa:ondrej/php -y", "apt install php8.3 -y", "apt install php8.3-mysql php8.3-xml"],
+                                            "simple": []
+                                        },
+                            "javaScript" : 
+                                        {
+                                            "download": [],
+                                            "sudo": [],
+                                            "simple": ["curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"]
+                                        },
+                            
+                            "snap":
+                                        {
+                                            "download": [],
+                                            "simple": [],
+                                            "sudo": ["snap install spotify"]
+                                        },
+                            
+                            "packages": 
+                                        {
+                                            "download": [["https://dbeaver.io/update/latest/files/dbeaver-ce_latest_amd64.deb", "dbeaver-ce_latest_amd64.deb"], ["https://dl.pstmn.io/download/latest/linux_64", "postman.deb"], ["https://code.visualstudio.com/docs/?dv=linux64_deb", "code.deb"]],
+                                            "simple": [],
+                                            "sudo": []
+                                        }
+                            
+                        }
 }

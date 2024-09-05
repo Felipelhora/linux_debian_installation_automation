@@ -1,5 +1,5 @@
 import json
-from src.config import local_path
+from src.config import local_path, system
 
 
 class CommandsText:
@@ -10,7 +10,9 @@ class CommandsText:
     ## ler o que tem    
     def load_commands(self):
             with open(f"{local_path}/commands.json", 'r+') as json_commands:
-                return json.loads(json_commands.read())
+                json_commands = json.loads(json_commands.read())
+                if system == 'ubuntu' or system == 'debian':
+                   return json_commands['debian/ubuntu']
 
     ## modificar
     
