@@ -10,6 +10,7 @@ def organize_command(command:str, type_command:str, sudo:bool) ->str:
     type_command = type_command.replace('_', ' ')
     command = command.replace("'", '"')
     command = command.replace("-|", "'")
+    command = command.replace("||", '"')
     command = command.format(path_home=path_home, path_download=path_download)
     command = f"{type_command} {command}"
     if type_command != 'snap' and sudo == True:

@@ -23,9 +23,10 @@
                                         {
                                             "download": [],
                                             "sudo":     {
+                                                            "add-apt-repository": ["ppa:ondrej/php"],            
                                                             "apt":["update", "upgrade"],
-                                                            "add-apt-repository": ["add-apt-repository ppa:ondrej/php"],
-                                                            "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml", "php8.3-xdebug"]
+                                                            "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml", "php8.3-xdebug"],
+                                                            "sh": ["-c 'echo ||texto|| >> /etc/php8.3/cli/php.ini"]
                                                        },
                                             "simple": {}
                                         },
