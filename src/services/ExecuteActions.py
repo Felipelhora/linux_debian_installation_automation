@@ -17,10 +17,10 @@ class ExecuteActions:
                 line = process.stdout.readline()
                 if line:
                     if invisible !=True:
-                        print(line, end='')
+                        print(line, end='\r')
                 elif process.poll() is not None:
                     break
-            print (process.communicate())
+            print (process.communicate(), end='\r')
             return True
         except Exception as error_:
             save_erros_log(message=error_, command=prompt)
