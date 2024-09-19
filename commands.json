@@ -26,10 +26,12 @@
                                                             "add-apt-repository": ["ppa:ondrej/php"],            
                                                             "apt":["update", "upgrade"],
                                                             "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml", "php8.3-xdebug"],
-                                                            "sh": ["-c 'echo ||texto|| >> /etc/php8.3/cli/php.ini"]
+                                                            "sh": ["-c 'echo ||zend_extension=xdeub|| >> /etc/php8.3/cli/php.ini","-c 'echo ||xdebug.mode = debug|| >> /etc/php8.3/cli/php.ini", "-c 'echo ||xdebug.start_with_request = yes|| >> /etc/php8.3/cli/php.ini"]
                                                        },
                                             "simple": {}
                                         },
+                            
+
                             "javaScript" : 
                                         {
                                             "download": [],
@@ -40,6 +42,22 @@
                                                             "curl": ["-o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"],
                                                             "npm_install": ["-g @quasar/cli"]
                                                         }
+                                        },
+
+                            "rust":     {
+                                                "simple":   {
+                                                                "curl" :    [
+                                                                                {
+                                                                                    "command":"--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", 
+                                                                                    "input": "\n1"
+                                                                                } 
+                                                                            ] 
+
+
+                                                            }
+
+
+
                                         },
                             
                             "snap":

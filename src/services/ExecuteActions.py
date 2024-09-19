@@ -9,8 +9,9 @@ class ExecuteActions:
     
     def __init__(self):
         ...
-    def prompt_commands(self, prompt:str, invisible:bool) -> str:
+    def prompt_commands(self, prompt:str, invisible:bool, input_command:str=None) -> str:
         try:
+            
             process = subprocess.Popen(prompt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             print (config["menu_options"]["messages_execution"]["running"], '--->', prompt)
             while True:

@@ -2,3 +2,4 @@
 0.0.2 - Correção do menu
 0.0.3 - Correção gitignore
 0.0.4 - Mudanças nas chamadas python e .deb
+0.0.5 - incluida opão de input no terminal
