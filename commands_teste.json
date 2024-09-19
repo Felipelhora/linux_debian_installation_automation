@@ -50,15 +50,7 @@
                                                             }
 
                                         },
-                            "dotnet":
-                                        {
-                                                "sudo": {
-                                                            "apt": ["update, upgrade"],
-                                                            "apt_install": ["dotnet-sdk-8.0", "aspnetcore-runtime-8.0", "dotnet-runtime-8.0", "zlib1g"]
-                                                        },
-                                                "download": [],
-                                                "simple": {}
-                                        },
+                            
                             
                             "snap":
                                         {
@@ -70,6 +62,15 @@
                                                     }
                                         },
                             
+                            "dotnet":
+                                        {
+                                                "sudo": {
+                                                            "apt": ["update, upgrade"],
+                                                            "apt_install": ["dotnet-sdk-8.0", "aspnetcore-runtime-8.0", "dotnet-runtime-8.0", "zlib1g"]
+                                                        },
+                                                "download": [],
+                                                "simple": {}
+                                        },
                             "packages": 
                                         {
                                             "download": [["https://download-cdn.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz", "toolbox.tar.gz"], ["https://dbeaver.io/update/latest/files/dbeaver-ce_latest_amd64.deb", "dbeaver-ce_latest_amd64.deb"], ["https://vscode.download.prss.microsoft.com/dbazure/download/stable/4849ca9bdf9666755eb463db297b69e5385090e3/code_1.93.0-1725459079_amd64.deb", "code_amd64.deb"]],

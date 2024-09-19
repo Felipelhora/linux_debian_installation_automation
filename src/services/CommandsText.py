@@ -8,7 +8,7 @@ class CommandsText:
         self.commands = self.load_commands()
 
             
-    ## ler o que tem    
+    ## read o que tem    
     def load_commands(self):
             with open(f"{local_path}/commands.json", 'r+') as json_commands:
                 json_commands = json.loads(json_commands.read())
@@ -17,7 +17,7 @@ class CommandsText:
 
                 
 
-    ## modificar
+    ## create
     
     
     

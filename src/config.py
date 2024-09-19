@@ -5,17 +5,13 @@ import subprocess
 
 
 
-
-
-
-
 def get_route_path():
     process = subprocess.Popen('logname', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     stdout, stderr = process.communicate()
     return f"/home/{stdout.strip()}/"
     
 def load_pack_language():
-    with open (f"{local_path}/languages.json") as languages:
+    with open (f"{local_path}/src/languages.json") as languages:
          return json.loads(languages.read())
 
 def get_release():
@@ -56,6 +52,6 @@ system = get_release()
 version_system = get_version()
 
 config = {
-            "menu_options" : load_pack_language()[env_load()["language"]],
+            "text_language" : load_pack_language()[env_load()["language"]],
             
 }

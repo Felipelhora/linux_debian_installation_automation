@@ -3,10 +3,22 @@ from src.config import config
 import os
 import curses
 import getpass
+import time
+
+
+
 
 class Menu():
     def __init__(self):
-        self.options = {}
+        self.options_to_run = {}
+    
+    def clear_terminal(self):
+        
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
+
 
     def print_menu(self, stdscr, selected_row_idx, selected_options, menu_options):
         stdscr.clear()
@@ -54,21 +66,56 @@ class Menu():
         os.system("clear")
 
 
-    def choise_options(options):
-        ...
+    def __choise_options(self, options):
+        text_options = ""
+        number_options = len(options)
+        for option in options:
+            text_options = f"{text_options}\n{option}"
+        return [f"{text_options}\n", number_options]
     
+
+    def menu_maker(self, text_menu):
+        while True:
+            menu_options = self.__choise_options(text_menu)
+            print (menu_options[0])
+            choice = input(config["text_language"]["menu"]["choice_option"])
+            self.clear_terminal()
+            try:
+                if int(choice) > 0 and int(choice) <= menu_options[1]:
+                   return int(choice)
+                else:
+                    self.clear_terminal()
+                    print ('\n\n####################################\n')
+                    print ('----> ',config["text_language"]["menu"]['error_menu'], f' ** {choice} **' ,' <----')
+                    print ('\n####################################\n')
+                    time.sleep(1)
+                    continue    
+            except:
+                self.clear_terminal()
+                print ('\n\n####################################\n')
+                print ('----> ',config["text_language"]["menu"]['error_menu'], f' ** {choice} **' ,' <----')
+                print ('\n####################################\n')
+                time.sleep(1)
+                continue
+
+
     def menu_main(self):
-        password = password = getpass.getpass(prompt=config["menu_options"]["main_menu"]["enter_pass"])
-        return password
-    
-        # while True:
-        #     print (self.options)
-        #     for title in config["menu_options"]["main_menu"]["title"]:
+        return self.menu_maker(config["text_language"]["menu"]["options"]['first_menu_options'])
+       
+
+    def menu_create_commands(self):
+        print (self.choise_options(config["text_language"]["menu"]["options"]['first_menu_options']))
+
+
+    def get_password(self):
+        return getpass.getpass(prompt=config["text_language"]["menu"]["enter_pass"])
+
         #         print (title)
         #     print('\n')
         #     self.options = config["menu_options"]["main_menu"]["options"]
         #     print (self.options)
         #     curses.wrapper(self.main)
-        #     choise = int(input(''))
+        #     
         #     os.system("clear")
-            
+        # return password
+    

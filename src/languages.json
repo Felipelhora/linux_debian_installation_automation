@@ -1,0 +1,29 @@
+{
+    
+    "pt-br":
+             { 
+                "menu" :   {
+                                    "title" : ["ESCOLHA OS PACOTES QUE DESEJA INSTALAR"],
+                                    "enter_pass": "DIGITE SUA SENHA SUDO : ",
+                                    "choice_option": "ESCOLHA UMA OPÇÃO: ",
+                                    "options" : { 
+                                                    "first_menu_options" : 
+                                                                    [
+                                                                        "1 - RODAR APLICAÇÃO", "2 - CADASTRAR NOVOS COMANDOS", "3 - IMPORTAR COMANDOS", "4 - SAIR"
+                                                                    ],
+                                                    "create_comands": {}
+                                                                    
+                                                },
+                                    "error_menu": "A OPÇÃO ESCOLHIDA DE ENTRADA É INVÁLIDA",
+                                    "alert_create_download_path": "HOUVE UMA FALHA, A PASTA DOWNLOAD NÃO EXISTE E NÃO PODE SER CRIADA\nTENTE CRIAR A PASTA NA RAIZ MANUALMENTE",
+                                    "alert_create_commands_json": "HOUVE UMA FALHA, O ARQUIVO commands.json NÃO EXISTE E NÃO PODE SER CRIADO"
+
+                                },
+                "messages_execution" :
+                                {
+                                    
+                                    "success"   : "Excução feita com sucesso",
+                                    "running"   : "Executando ação"
+                                }
+            }
+}

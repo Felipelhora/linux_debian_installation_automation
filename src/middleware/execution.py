@@ -3,7 +3,8 @@ from src.services.ExecuteActions import ExecuteActions
 from src.config import path_home, path_download
 from src.view.Menu import Menu
 import os
-
+from src.inspection_app import start_inspection_app
+import sys
 
 
 def organize_command(command:str, type_command:str, sudo:bool) ->str:
@@ -49,8 +50,10 @@ def execute_install_packages(password:str, actions:object):
             actions.prompt_commands(prompt=f"echo '{password}' | sudo -S dpkg -i {path_download}/{file}", invisible=False)  
 
 
-def start(filter_actions:list) -> None:
-    password = Menu().menu_main()
+
+
+def execution_commands(filter_actions:list) -> None:
+    password = Menu().get_password()
     actions = ExecuteActions()
     commandsText = CommandsText()
     commands  = commandsText.load_commands()
@@ -62,17 +65,23 @@ def start(filter_actions:list) -> None:
            execute_simple_commands(simple_commands=commands[command_group]['simple'], actions=actions)
            execute_download_commads(download_instrutions=commands[command_group]['download'], actions=actions)
            execute_install_packages(password=password, actions=actions)
-          # EXECUTA COMANDO POR COMANDO
-        #   for promt in commands[command_group]['sudo']:
-              
-        #         promt = promt.replace("'", '"')
-        #         promt = promt.replace("-|", "'")
-                
-        #         promt = promt.format(path_home=path_home, path_download=path_download)
-        #         print (promt)    
-        #         output = actions.prompt_commands(prompt=promt, invisible=False)
     
     
+
+
+
+def start(filter_actions:list) -> None:
+    start_inspection_app()
+    while True:
+        menu_answer = Menu().menu_main()
+        if menu_answer == 1:
+            execution_commands(filter_actions)
+        elif  menu_answer == 2:
+            ...
+        elif  menu_answer == 3:
+            ...
+        elif  menu_answer == 4:
+            sys.exit()
 
 
 
