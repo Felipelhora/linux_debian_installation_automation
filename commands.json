@@ -46,14 +46,7 @@
 
                             "rust":     {
                                                 "simple":   {
-                                                                "curl" :    [
-                                                                                {
-                                                                                    "command":"--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", 
-                                                                                    "input": "\n1"
-                                                                                } 
-                                                                            ] 
-
-
+                                                                "curl" :    ["--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"] 
                                                             }
 
 
