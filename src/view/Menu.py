@@ -109,13 +109,4 @@ class Menu():
 
     def get_password(self):
         return getpass.getpass(prompt=config["text_language"]["menu"]["enter_pass"])
-
-        #         print (title)
-        #     print('\n')
-        #     self.options = config["menu_options"]["main_menu"]["options"]
-        #     print (self.options)
-        #     curses.wrapper(self.main)
-        #     
-        #     os.system("clear")
-        # return password
     

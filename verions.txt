@@ -4,3 +4,4 @@
 0.0.4 - Mudanças nas chamadas python e .deb
 0.0.5 - incluida opão de input no terminal
 0.0.6 - Menus
+0.0.7 - inclusão de logs e historico de console

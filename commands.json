@@ -3,30 +3,8 @@
     "system": {
       "download": [],
       "sudo": {
-        "add-apt-repository": [
-          "universe"
-        ],
         "apt": [
-          "update, upgrade"
-        ],
-        "apt_install": [
-          "htop",
-          "kolourpaint",
-          "bmon",
-          "openssh-server",
-          "docker.io",
-          "docker-compose-v2",
-          "net-tools",
-          "curl",
-          "terminator",
-          "git",
-          "build-essential",
-          "python3-pip",
-          "wget",
-          "libssl-dev",
-          "snapd",
-          "libfuse2",
-          "libfuse2t64"
+          "update"
         ]
       },
       "simple": {}

@@ -26,7 +26,7 @@ def execute_sudo_commands(sudo_commands:dict, password:str, actions:object):
     for type_commands in sudo_commands:
         for command in sudo_commands[type_commands]:
             prompt = organize_command(command=command, type_command=type_commands, sudo=True)            
-            actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {prompt}", invisible=False)
+            actions.prompt_commands(prompt=f"echo '{password}' | sudo -S {prompt}", invisible=False, password=password)
 
 
 def execute_simple_commands(simple_commands:list, actions:object):
