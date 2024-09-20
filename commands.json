@@ -1,80 +1,35 @@
 {
-    "ubuntu_debian" :   
-                        {
-                            "system":   { 
-                                            "download"  : [],
-                                            "sudo"      :       {
-                                                                    "add-apt-repository": ["universe"],                    
-                                                                    "apt": ["update, upgrade"],
-                                                                    "apt_install":["htop", "kolourpaint","bmon", "openssh-server", "docker.io", "docker-compose-v2", "net-tools", "curl", "terminator", "git", "build-essential", "python3-pip", "wget", "libssl-dev", "snapd", "libfuse2", "libfuse2t64"]
-                                                                },
-                                            "simple"    : {}
-                                        },
-                            "python" : { 
-                                            "download": [],
-                                            "sudo": {},
-                                            "simple": 
-                                                        {
-                                                            "curl":["https://pyenv.run | bash"],
-                                                            "echo": ["-|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "-|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "-|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
-                                                        }
-                                        },    
-                            "php": 
-                                        {
-                                            "download": [],
-                                            "sudo":     {
-                                                            "add-apt-repository": ["ppa:ondrej/php"],            
-                                                            "apt":["update", "upgrade"],
-                                                            "apt_install": ["software-properties-common", "php8.3", "php8.3-mysql", "php8.3-xml", "php8.3-xdebug"],
-                                                            "sh": ["-c 'echo ||zend_extension=xdeub|| >> /etc/php8.3/cli/php.ini","-c 'echo ||xdebug.mode = debug|| >> /etc/php8.3/cli/php.ini", "-c 'echo ||xdebug.start_with_request = yes|| >> /etc/php8.3/cli/php.ini"]
-                                                       },
-                                            "simple": {}
-                                        },
-                            
-
-                            "javaScript" : 
-                                        {
-                                            "download": [],
-                                            "sudo":         {
-                                                                "apt_install":["npm", "nodejs"]
-                                                            },
-                                            "simple":   {
-                                                            "curl": ["-o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"],
-                                                            "npm_install": ["-g @quasar/cli"]
-                                                        }
-                                        },
-
-                            "rust":     {
-                                                "simple":   {
-                                                                "curl" :    ["--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"] 
-                                                            }
-
-                                        },
-                            "dotnet":
-                                        {
-                                                "sudo": {
-                                                            "apt": ["update, upgrade"],
-                                                            "apt_install": ["dotnet-sdk-8.0", "aspnetcore-runtime-8.0", "dotnet-runtime-8.0", "zlib1g"]
-                                                        },
-                                                "download": [],
-                                                "simple": {}
-                                        },
-                            
-                            "snap":
-                                        {
-                                            "download": [],
-                                            "simple": {},
-                                            "sudo": 
-                                                    {
-                                                        "snap":["install spotify", "install postman"]
-                                                    }
-                                        },
-                            
-                            "packages": 
-                                        {
-                                            "download": [["https://download-cdn.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz", "toolbox.tar.gz"], ["https://dbeaver.io/update/latest/files/dbeaver-ce_latest_amd64.deb", "dbeaver-ce_latest_amd64.deb"], ["https://vscode.download.prss.microsoft.com/dbazure/download/stable/4849ca9bdf9666755eb463db297b69e5385090e3/code_1.93.0-1725459079_amd64.deb", "code_amd64.deb"]],
-                                            "simple": {},
-                                            "sudo": {}
-                                        }
-                        }
+  "ubuntu_debian": {
+    "system": {
+      "download": [],
+      "sudo": {
+        "add-apt-repository": [
+          "universe"
+        ],
+        "apt": [
+          "update, upgrade"
+        ],
+        "apt_install": [
+          "htop",
+          "kolourpaint",
+          "bmon",
+          "openssh-server",
+          "docker.io",
+          "docker-compose-v2",
+          "net-tools",
+          "curl",
+          "terminator",
+          "git",
+          "build-essential",
+          "python3-pip",
+          "wget",
+          "libssl-dev",
+          "snapd",
+          "libfuse2",
+          "libfuse2t64"
+        ]
+      },
+      "simple": {}
+    }
+  }
 }
