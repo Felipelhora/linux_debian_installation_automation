@@ -1,13 +1,97 @@
 {
-  "ubuntu_debian": {
-    "system": {
-      "download": [],
-      "sudo": {
-        "apt": [
-          "update"
-        ]
-      },
-      "simple": {}
-    }
-  }
+    "ubuntu_debian" :   
+                        {
+                            "system":   { 
+                                            "download"  : [],
+                                            "sudo"      :       {
+                                                                    "add-apt-repository": ["universe"],                    
+                                                                    "apt": ["update, upgrade"],
+                                                                    "apt_install":["htop", "kolourpaint","bmon", "openssh-server", "docker.io", "docker-compose-v2", "net-tools", "curl", "terminator", "git", "build-essential", "python3-pip", "wget", "libssl-dev", "snapd", "libfuse2", "libfuse2t64", "unzip", "zip", "xz-utils", "clang", "cmake", "ninja-build", "pkg-config", "libstdc++-12-dev", "openjdk-21-jdk", "mesa-utils", "libglu1-mesa"]
+                                                                },
+                                            "simple"    : {}
+                                        },
+                            "python" : { 
+                                            "download": [],
+                                            "sudo": {},
+                                            "simple": 
+                                                        {
+                                                            "curl":["https://pyenv.run | bash"],
+                                                            "echo": ["-|export PATH='$HOME/.pyenv/bin:$PATH'-| >> {path_home}.bashrc", "-|eval '$(pyenv init --path)'-| >> {path_home}.bashrc", "-|eval '$(pyenv virtualenv-init -)'-| >> {path_home}.bashrc"]
+                                                        }
+                                        },    
+                            "php": 
+                                        {
+                                            "download": [],
+                                            "sudo":     {
+                                                            "add-apt-repository": ["ppa:ondrej/php"],            
+                                                            "apt":["update", "upgrade"],
+                                                            "apt_install": ["software-properties-common", "php8.5", "php8.5-mysql", "php8.5-xml", "php8.5-xdebug"],
+                                                            "sh": ["-c 'echo ||zend_extension=xdeub|| >> /etc/php8.5/cli/php.ini","-c 'echo ||xdebug.mode = debug|| >> /etc/php8.5/cli/php.ini", "-c 'echo ||xdebug.start_with_request = yes|| >> /etc/php8.5/cli/php.ini"]
+                                                       },
+                                            "simple": {}
+                                        },
+                            
+
+                            "javaScript" : 
+                                        {
+                                            "download": [],
+                                            "sudo":         {
+                                                                "apt_install":["npm", "nodejs"]
+                                                            },
+                                            "simple":   {
+                                                            "curl": ["-o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"],
+                                                            "npm_install": ["-g @quasar/cli"]
+                                                        }
+                                        },
+
+                            "rust":     {
+                                                "simple":   {
+                                                                "curl" :    ["--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"] 
+                                                            }
+
+                                        },
+                            "dotnet":
+                                        {
+                                                "sudo": {
+                                                            "apt": ["update, upgrade"],
+                                                            "apt_install": ["dotnet-sdk-8.0", "aspnetcore-runtime-8.0", "dotnet-runtime-8.0", "zlib1g"]
+                                                        },
+                                                "download": [],
+                                                "simple": {}
+                                        },
+                            
+                            "snap":
+                                        {
+                                            "download": [],
+                                            "simple": {},
+                                            "sudo": 
+                                                    {
+                                                        "snap":["install spotify", "install postman", "install android-studio --classic"]
+                                                    }
+                                        },
+                            
+                            "flutter":
+                                        {
+                                            "download": [],
+                                            "sudo":
+                                                    {
+                                                        "apt": ["update", "upgrade"],
+                                                        "apt_install": ["libgtk-3-dev", "google-android-platform-tools-installer"]
+                                                    },
+                                            "simple":
+                                                    {
+                                                        "mkdir": ["-p {path_home}develop", "-p {path_home}apps"],
+                                                        "git": ["clone https://github.com/flutter/flutter.git --depth 1 -b stable {path_home}develop/flutter"],
+                                                        "echo": ["-|export PATH=||$HOME/develop/flutter/bin:$PATH||-| >> {path_home}.bashrc", "-|export ANDROID_HOME=||$HOME/Android/Sdk||-| >> {path_home}.bashrc", "-|export PATH=||$ANDROID_HOME/platform-tools:$PATH||-| >> {path_home}.bashrc"],
+                                                        "sh": ["-c ||$HOME/develop/flutter/bin/flutter config --android-sdk $HOME/Android/Sdk||", "-c ||yes | $HOME/develop/flutter/bin/flutter doctor --android-licenses||", "-c ||$HOME/develop/flutter/bin/flutter doctor -v||"]
+                                                    }
+                                        },
+
+                            "packages":
+                                        {
+                                            "download": [["https://download-cdn.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz", "toolbox.tar.gz"], ["https://dbeaver.io/update/latest/files/dbeaver-ce_latest_amd64.deb", "dbeaver-ce_latest_amd64.deb"], ["https://vscode.download.prss.microsoft.com/dbazure/download/stable/4849ca9bdf9666755eb463db297b69e5385090e3/code_1.93.0-1725459079_amd64.deb", "code_amd64.deb"]],
+                                            "simple": {},
+                                            "sudo": {}
+                                        }
+                        }
 }

@@ -1,0 +1,13 @@
+{
+  "ubuntu_debian": {
+    "system": {
+      "download": [],
+      "sudo": {
+        "apt": [
+          "update"
+        ]
+      },
+      "simple": {}
+    }
+  }
+}

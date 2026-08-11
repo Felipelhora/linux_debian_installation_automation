@@ -98,7 +98,7 @@ def start() -> None:
     while True:
         menu_answer = Menu().menu_main()
         if menu_answer == 1:
-            execution_commands(['system','python', 'php', 'javascript','snap', 'packages' 'rust'])
+            execution_commands(['system','python', 'php', 'javascript','snap', 'flutter', 'packages' 'rust'])
         elif  menu_answer == 2:
             system = get_system()
             get_services_to_run(system=system)
